@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+
+body {
+	margin : 0;
+	background-color : #f5f7fa;
+	font-family: inherit;
+	color:#444;
+}
+main{
+		width : 900px;
+		margin : 40px auto;
+		padding : 25px;
+		background:white;
+		border-radius: 10px;		
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+		text-align: center;
+}
+
+
+
+/* 테이블 */
+	table,th,td {
+		border-collapse: collapse;
+	}
+	table {
+		width : 100%;
+	 	overflow: hidden;
+	  border-radius: 10px;
+	  margin-bottom : 20px;
+	}
+	ul, li {
+		list-style : none;
+	}
+
+/* a */
+	a{
+		text-decoration: none;
+		border-radius: 6px;
+	  transition: 0.2s;
+	  padding: 6px 12px;
+	  color: #444;
+	}
+	a:hover{
+		text-decoration: underline;
+		background:#eceff3;
+		color:#2f3b52;
+	}
+/*제목 */
+	h1, h2, h3{
+		margin : 15px 10px;
+		padding : 10px;
+	}
+
+/*필수 입력*/
+	.red {
+		color: red;
+	}
+
+
+/*header*/
+	tr:first-child {
+		background:#eef1f4;
+	  border-bottom: 1px solid #dcdfe4;
+	}
+	td{
+		padding : 15px;
+		text-align:center;
+		color:#555;
+	}
+
+/* 리스트 버튼(새 글/유저/추가버튼, Home 버튼) */
+	.btn-Box {
+	    display: inline-block;
+	    padding: 8px 16px;
+	    color: #555;
+	    font-size: 14px;
+	    font-weight: 500;
+	}
+	
+	.btn-Box:hover {
+	    background: #e7ebf0;
+	    color: #2f3b52;
+	}
+	
+	
+/*input type*/
+	  input[type="text"], input[type=number], input[type=password]  {
+	     width : 100%;
+	  }
+	  input[type=submit], input[type=button] {
+	     width : 100px;
+	  }
+
+
+	
+	
+/*paging-box  paging.jsp*/
+	.paging-box{
+		margin-top : 20px;
+		padding: 0 10px;
+	}
