@@ -4,16 +4,19 @@
 body {
 	margin : 0;
 	background-color : #f5f7fa;
-	font-family: inherit;
+	font-family: 'Pretendard','Noto Sans KR',sans-serif;
 	color:#444;
 }
 main{
 		width : 900px;
 		margin : 40px auto;
-		padding : 25px;
+		padding : 35px;
+		
 		background:white;
-		border-radius: 10px;		
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+		
+		border-radius: 16px;		
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    
 		text-align: center;
 }
 
@@ -35,6 +38,7 @@ main{
 
 /* a */
 	a{
+	  display:inline-block;
 		text-decoration: none;
 		border-radius: 6px;
 	  transition: 0.2s;
@@ -45,10 +49,11 @@ main{
 		text-decoration: underline;
 		background:#eceff3;
 		color:#2f3b52;
+		transform: translatey(-1.5px);
 	}
 /*제목 */
 	h1, h2, h3{
-		margin : 15px 10px;
+		margin : 15px 0;
 		padding : 10px;
 	}
 

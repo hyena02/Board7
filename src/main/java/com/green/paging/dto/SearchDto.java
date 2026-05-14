@@ -7,8 +7,9 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @ToString
+@AllArgsConstructor
+
 public class SearchDto {
 	private int pageNo; 			// 현재 페이지 번호 : nowpage pageNo
 	private int numOfRows; 			// 페이지당 출력할 데이터 갯수 : numOfRows

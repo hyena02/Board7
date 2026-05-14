@@ -101,7 +101,26 @@ WHERE
 ORDER BY
     IDX DESC;
 
-
+-------------------------------------------------------------
+-- 멀티 게시판 자료실
+CREATE TABLE FILES
+(
+     FILE_NUM   NUMBER(6,0)     NOT NULL    -- 파일 고유번호
+    ,IDX        NUMBER(6,0)     NOT NULL    -- 게시글 번호 : BOARD
+    ,FILENAME   VARCHAR2(255)   NOT NULL    -- 파일 이름
+    ,FILEEXT    VARCHAR2(255)   NOT NULL    -- 파일 확장자
+    ,SFILENAME  VARCHAR2(255)   NOT NULL    -- 저장된 실제 파일명
+    
+    ,CONSTRAINTS    FILES_PK    PRIMARY KEY
+    (
+        FILE_NUM
+        ,IDX        
+    )
+    ,CONSTRAINTS FK_BOARD_FILES_IDX
+     FOREIGN KEY (IDX)
+     REFERENCES  BOARD(IDX)
+     ON DELETE CASCADE
+);
 
 
 
