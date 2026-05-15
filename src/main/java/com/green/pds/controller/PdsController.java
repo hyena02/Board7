@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.green.menus.dto.MenuDTO;
@@ -46,8 +47,8 @@ public class PdsController {
 		List<MenuDTO> menuList = menuMapper.getMenuList();  
 		
 			// 자료실 목록 조회 (10 개씩)
-		int 	totalCount	= pdsMapper.count( map );	// 조회하는데 필요한거 -> (map)써서 data 날라가는 거 : menus_id,searchType,keyword(
-		int nowpage = Integer.parseInt( String.valueOf( map.get("nowpage"))); // Object 를 글자로 바꿔서 Integer.parseIt
+		int totalCount	= pdsMapper.count( map );	// 조회하는데 필요한거 -> (map)써서 data 날라가는 거 : menus_id,searchType,keyword(
+		int nowpage = Integer.parseInt( String.valueOf( map.get("nowpage"))); // Object 타입인 { nowpage } 를 글자로 바꾼 후  Integer.parseIt
 				
 			// 페이징을 위한 설정	
 		SearchDto searchDto = new SearchDto();
@@ -96,6 +97,31 @@ public class PdsController {
 		mv.addObject("menuList",menuList);
 		return mv;
 	}
+	
+	@RequestMapping("/Write")
+	public ModelAndView write(
+			@RequestParam HashMap<String, Object> map,
+			@RequestParam(value="upfile") MultipartFile[] uploadfiles
+		) {
+		System.out.println("map:"+ map);
+		System.out.println("uploadFiles:" + uploadfiles);
+		
+		// 넘어온 정보를 파일과 db에 저장한다
+		pdsService.setWrite(map, uploadfiles);
+		
+		String menu_id = String.valueOf(map.get("menu_id") );
+		
+		
+		ModelAndView mv = new ModelAndView();
+		String loc = """ 
+					redirect:/Pds/List?menu_id=%s&nowpage=%s				
+				""".formatted( map.get("menu_id"),map.get("nowpage"));
+		mv.setViewName(loc);
+		return mv;
+		
+		
+	}
+	
 	
 	
 	@RequestMapping("/View")

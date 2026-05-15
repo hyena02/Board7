@@ -80,7 +80,7 @@
 	    <tr>
 	      <td> ${  pds.idx      }  </td>    <!-- menu.getMenu_id() -->
 	      <td class="title"> 
-	        <a href ="/Board/View?idx=${map.idx}&menu_id=${map.menu_id}">
+	        <a href ="/Pds/View?idx=${map.idx}&menu_id=${map.menu_id}">
 	        ${ pds.title    }
 	        </a>  
 	      </td>
@@ -118,6 +118,23 @@
 	  const  mnameEl    =  document.querySelector('#mname');
 	  let    menunameEl =  document.querySelector('.menu .active')
 	  mnameEl.innerHTML =  menunameEl.innerHTML;
+	  
+	  
+	  	// 검색한 후 searchType을 선택한 내용 변경
+	 	
+	  	let curSearchType = '${map.searchType}' 		// 서버변수
+	  	let qry = "[value = " + curSearchType + "]"
+	  	const optionEls = document.querySelectorAll("option")
+	  	let index = 0;
+	  	switch(curSearchType){
+	  	
+	  	case"";
+	  	case "title" : index = 0; break;
+	  	case "content" : index = 1;break;
+	  	case "writer" : index = 2;break;
+	  	
+	  	}
+	  	opionEls[index].selected = true;
 	</script>
 </body>
 </html>
